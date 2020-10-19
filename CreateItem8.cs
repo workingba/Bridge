@@ -11,7 +11,11 @@ using Autodesk.Revit.UI.Events;
 
 namespace Bridge
 {
-    class CreateItem8
+    class CreateItem8 : IExternalCommand
     {
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        {
+            return Result.Succeeded;
+        }
     }
 }
