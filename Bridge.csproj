@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller.cs" />
-    <Compile Include="CreateItem1.cs" />
+    <Compile Include="CreateItemPillar.cs" />
     <Compile Include="CreateItem10.cs" />
     <Compile Include="CreateItem2.cs" />
     <Compile Include="CreateItem3.cs" />

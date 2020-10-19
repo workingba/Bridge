@@ -11,7 +11,7 @@ using Autodesk.Revit.UI.Events;
 
 namespace Bridge
 {
-    class CreateItem1 : IExternalCommand
+    class CreateItemPillar : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
