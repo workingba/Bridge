@@ -32,7 +32,7 @@ namespace Bridge
                     break;
                 case "PulldownButton":
                     PulldownButtonData pdbd = new PulldownButtonData("柱", "柱");
-                    SetPulldownButtonAttribute(ref ribbon, pdbd, largeImageuri, toolTip, longDescription);
+                    SetPulldownButtonAttribute(ref ribbon, assemblyName, className, pdbd, largeImageuri, toolTip, longDescription);
 
                     break;
                 case "SplitButton":
@@ -78,22 +78,19 @@ namespace Bridge
             pbd.LongDescription = longDescription;
         }
         //设置PulldownButton类型的介绍信息
-        public void SetPulldownButtonAttribute(ref RibbonPanel ribbon, PulldownButtonData pdb, string largeImageuri, string toolTip, string longDescription)
+        public void SetPulldownButtonAttribute(ref RibbonPanel ribbon,string assembly,string className, PulldownButtonData pdb, string largeImageuri, string toolTip, string longDescription)
         {
-            PushButtonData p1 = new PushButtonData("test1","test1",@"D:\workfile\HelloWorld\bin\Debug\HelloWorld.dll", "HelloWorld.Class1");
-            PushButtonData p2 = new PushButtonData("test2","test2",@"D:\workfile\HelloWorld\bin\Debug\HelloWorld.dll", "HelloWorld.Class1");
-            PushButtonData p3 = new PushButtonData("test3","test3",@"D:\workfile\HelloWorld\bin\Debug\HelloWorld.dll", "HelloWorld.Class1");
+            PushButtonData p1 = new PushButtonData("Pillar1", "圆柱", assembly, className);
+            PushButtonData p2 = new PushButtonData("Pillar2", "方柱", assembly, className);
+            SetCommonAttribute(ref p1, @"D:\workfile\Bridge\Img\Pillar1.png", "圆柱", "圆柱");
+            SetCommonAttribute(ref p2, @"D:\workfile\Bridge\Img\Pillar1.png", "方柱", "方柱");
             pdb.LargeImage = new BitmapImage(new Uri(largeImageuri));
             pdb.ToolTip = toolTip;
             pdb.LongDescription = longDescription;
             PulldownButton pulldown = ribbon.AddItem(pdb) as PulldownButton;
             //在PulldownButton中添加PushButton
-            SetCommonAttribute(ref p1, largeImageuri,toolTip,longDescription);//后面根据需求不是使用这几个参数，单独增加参数
-            SetCommonAttribute(ref p2, largeImageuri, toolTip, longDescription);//后面根据需求不是使用这几个参数，单独增加参数
-            SetCommonAttribute(ref p3, largeImageuri, toolTip, longDescription);//后面根据需求不是使用这几个参数，单独增加参数
             pulldown.AddPushButton(p1);
             pulldown.AddPushButton(p2);
-            pulldown.AddPushButton(p3);
             
         }
         //设置PulldownButton类型的介绍信息
